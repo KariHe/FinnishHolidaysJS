@@ -22,16 +22,16 @@
     ]
   }
 
-  function easternReleatedHolidaysFor(year) {
-    var eastern = IanTaylorEasterJscr(year);
-    var goodFriday = new Date(eastern.getTime() - 2 * dayInMs);
-    var easternMonday = new Date(eastern.getTime() + dayInMs);
-    var ascensionDay = new Date(eastern.getTime() + 39 * dayInMs );
-    var pentecost = new Date(eastern.getTime() + 49 * dayInMs );
+  function easterReleatedHolidaysFor(year) {
+    var easter = IanTaylorEasterJscr(year);
+    var goodFriday = new Date(easter.getTime() - 2 * dayInMs);
+    var easternMonday = new Date(easter.getTime() + dayInMs);
+    var ascensionDay = new Date(easter.getTime() + 39 * dayInMs );
+    var pentecost = new Date(easter.getTime() + 49 * dayInMs );
 
     return [
       { date: goodFriday, name: 'Pitkäperjantai' },
-      { date: eastern, name: 'Pääsiäispäivä' },
+      { date: easter, name: 'Pääsiäispäivä' },
       { date: easternMonday, name: '2. pääsiäispäivä' },
       { date: ascensionDay, name: 'Helatorstai' },
       { date: pentecost, name: 'Helluntainpäivä' }
@@ -97,7 +97,7 @@
    */
   function FinnishHolidays(year) {
     return fixedHolidaysFor(year)
-      .concat(easternReleatedHolidaysFor(year))
+      .concat(easterReleatedHolidaysFor(year))
       .concat(holidaysInBetweenTimeFrame(year));
   }
 
